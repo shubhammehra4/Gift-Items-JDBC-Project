@@ -33,38 +33,31 @@ public class landingClass {
 				{
 					choice=5;
 				}
-				
-				if(choice<1 || choice>4)
+				switch(choice)
 				{
-					System.out.println("Incorrect Choice.\n Please enter an integer between 1 and 4.");
-					continue;
-				}
-				
-				if(choice==1)
-				{
-					// Verify with signup class.
-					SignUp newUser= new SignUp();
-					newUser.sign(sc);
+					case 1:
+						// Verify with signup class.
+						SignUp newUser= new SignUp();
+						newUser.sign(sc);
+						break;
+					case 2:
+						// Verify with LogIn class
+						LogIn currUser= new LogIn();
+						currUser.login(sc);
+						break;
+					case 3:
+						// Verify with VerifyAdmin class.
+						VerifyAdmin admin= new VerifyAdmin();
+						break;
+					case 4:
+						done=1;
+						break;
+					default:
+						System.out.println("Incorrect Choice.\n Please enter an integer between 1 and 4.");
+						break;
 							
 				}
 				
-				else if (choice==2)
-				{
-					// Verify with LogIn class
-					LogIn currUser= new LogIn();
-					currUser.login(sc);
-				}
-				else if (choice==3)
-				{
-					// Verify with VerifyAdmin class.
-					VerifyAdmin admin= new VerifyAdmin();
-					
-					
-				}
-				else if (choice==4)
-				{
-					done=1;
-				}
 			}
 			
 			catch (Exception e)
