@@ -37,16 +37,20 @@ public class Login {
                 String sql = "SELECT Password FROM Customers WHERE Username='" + username + "'";
 
                 try (ResultSet res = stmt.executeQuery (sql) ) {
-                    while (res.next() ) {
-                        String originalPassword = res.getString ("Password");
+                    if (!Objects.isNull (res) ) {
+                        while (res.next() ) {
+                            String originalPassword = res.getString ("Password");
 
-                        if (password.equals (originalPassword) ) {
-                            System.out.println ("Successful Login and Redirecting");
-                            // User U =new User();
-                            // U.fun(scan, idv);
-                        } else {
-                            System.out.println ("Incorrect Password");
+                            if (password.equals (originalPassword.trim() ) ) {
+                                System.out.println ("Successful Login and Redirecting");
+                                // User U =new User();
+                                // U.fun(scan, idv);
+                            } else {
+                                System.out.println ("Incorrect Password");
+                            }
                         }
+                    } else {
+                        System.out.println ("Username is not registered");
                     }
 
                     res.close();
@@ -61,8 +65,6 @@ public class Login {
             System.out.println ("Error");
             e.printStackTrace();
         } finally {
-            System.out.println ("Login Complete");
-
             try {
                 if (stmt != null)
                     conn.close();
