@@ -44,8 +44,8 @@ public class Register {
                 email = scan.nextLine();
                 System.out.print ("Password: ");
                 password = scan.nextLine();
-                String sql = "INSERT INTO user VALUES " + "(" + id + ", " + "'" + password + "', " + "'" + name + "', "
-                             + "'" + username + "', " + "'" + email + "')";
+                String sql = "INSERT INTO Customers VALUES " + "(" + id + ", " + "'" + name + "', " + "'" + username + "', "
+                             + "'" + email + "', " + "'" + password + "')";
                 stmt.execute (sql);
                 System.out.println ("Successfully Registered!");
                 System.out.println ("Redirecting");

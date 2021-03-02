@@ -34,7 +34,7 @@ public class Login {
                 username = scan.nextLine();
                 System.out.print ("Password: ");
                 password = scan.nextLine();
-                String sql = "SELECT password FROM user WHERE username='" + username + "'";
+                String sql = "SELECT Password FROM Customers WHERE Username='" + username + "'";
 
                 try (ResultSet res = stmt.executeQuery (sql) ) {
                     while (res.next() ) {
