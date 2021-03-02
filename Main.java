@@ -34,6 +34,8 @@ class Main {
                     case 2:
                         System.out.println ("Register Page");
                         // Register Page
+                        Register R = new Register();
+                        R.execute (scan);
                         break;
 
                     case 3:
