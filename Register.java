@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Register {
     static final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
@@ -15,6 +16,7 @@ public class Register {
     String password = "";
     String email = "";
     String name = "";
+    int id;
 
     public void execute (Scanner scan) {
         Connection conn = null;
@@ -32,6 +34,8 @@ public class Register {
             System.out.println();
 
             try {
+                Random rand = new Random();
+                id = rand.nextInt (100000) + 1; // [1-100000]
                 System.out.print ("Name: ");
                 name = scan.nextLine();
                 System.out.print ("Username: ");
@@ -40,11 +44,9 @@ public class Register {
                 email = scan.nextLine();
                 System.out.print ("Password: ");
                 password = scan.nextLine();
-                String sql = "INSERT INTO user VALUES " + "(" + username + ", " + "'" + password + "', " + "'" + name
-                             + "', " + "'" + email + "')";
+                String sql = "INSERT INTO user VALUES " + "(" + id + ", " + "'" + password + "', " + "'" + name + "', "
+                             + "'" + username + "', " + "'" + email + "')";
                 stmt.execute (sql);
-                // System.out.print(name);
-                // System.out.print(password);
                 System.out.println ("Successfully Registered!");
                 System.out.println ("Redirecting");
             } catch (Exception e) {
