@@ -136,8 +136,8 @@ public class Cart {
 									Integer giftID = res.getInt("GIFTID");
 									Integer bookingid = rand.nextInt (1000000000) + 1;
 									String ins = "Insert into bookings values(" + bookingid + "," + Id1 + "," + giftID + "," + "'" + add + "'" + ")";
-									System.out.println("insert:" + ins);
-									stmt.executeUpdate(ins);
+									//System.out.println("insert:" + ins);
+									//stmt.executeUpdate(ins);
 
 
 								}
